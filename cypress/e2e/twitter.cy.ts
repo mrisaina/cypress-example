@@ -1,4 +1,9 @@
-import { creds, openLoginModal } from '../constants/common'
+import {
+  creds,
+  openLoginModal,
+  waitForBtnToBeEnabled,
+  waitForModalLoaderHidden,
+} from '../constants/common'
 import {
   common,
   forgotPassword,
@@ -11,7 +16,7 @@ import { selectBirthDate } from '../utils/signup'
 
 describe('twitter tests', () => {
   beforeEach(() => {
-    // clear the state and delete messages from email
+    // delete messages from email
     deleteEmails(creds.email)
 
     // visit site and accept cookies
@@ -23,11 +28,12 @@ describe('twitter tests', () => {
     const email = getRandomTempMail()
 
     home.signupBtn.click()
-    common.modalLoader.should('not.exist')
+    waitForModalLoaderHidden()
 
     signup.username.type('TestUser')
     signup.email.type(email)
     selectBirthDate({ month: 'April', day: 20, year: 2000 })
+    waitForBtnToBeEnabled(login.nextBtn)
     login.nextBtn.click()
 
     // submit another page
@@ -58,6 +64,7 @@ describe('twitter tests', () => {
     })
 
     login.password.type(creds.password)
+    waitForBtnToBeEnabled(login.loginBtn)
     login.loginBtn.click()
 
     // check that login req was successful and user was navigated to the home page
@@ -74,6 +81,7 @@ describe('twitter tests', () => {
     cy.location('pathname').should('contain', '/password_reset')
 
     forgotPassword.username.type(creds.username)
+    waitForBtnToBeEnabled(login.nextBtn)
     login.nextBtn.click()
 
     cy.contains('Send an email to').should('be.visible')
@@ -81,15 +89,16 @@ describe('twitter tests', () => {
 
     getEmailCode(creds.email).then((code) => {
       cy.get('input[name="text"]').type(code)
+      waitForBtnToBeEnabled(login.nextBtn)
       login.nextBtn.click()
-      common.modalLoader.should('not.exist')
     })
+    waitForModalLoaderHidden()
 
     forgotPassword.newPassword.type(creds.password)
     forgotPassword.repeatNewPassword.type(creds.password)
 
     // wait for change password to be enabled
-    forgotPassword.changePassword.invoke('attr', 'tabindex').should('eq', '0')
+    waitForBtnToBeEnabled(forgotPassword.changePassword)
     forgotPassword.changePassword.click()
 
     cy.get('[name="single-choice"]').eq(2).click()

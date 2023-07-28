@@ -1,6 +1,6 @@
 export const login = {
   get nextBtn() {
-    return cy.get('[role="button"]').contains('Next')
+    return cy.get('[role="button"]').filter(':contains(Next)')
   },
   get userNameEmailInput() {
     return cy.get('input[autocomplete="username"]')
@@ -12,7 +12,7 @@ export const login = {
     return cy.get('[name="password"]')
   },
   get loginBtn() {
-    return cy.get('[role="button"]').contains('Log in')
+    return cy.get('[role="button"]').filter(':contains(Log in)')
   },
   get forgotPasswordBtn() {
     return cy.get('[role="button"]').contains('Forgot password?')

@@ -6,7 +6,7 @@
   "scripts": {
     "test:open": "npx cypress open",
     "format": "npx prettier . --write",
-    "test": "npx cypress run"
+    "test": "npx cypress run --browser chrome"
   },
   "author": "",
   "license": "ISC",
