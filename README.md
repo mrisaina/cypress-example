@@ -38,7 +38,3 @@
 
 - [dotenv](https://www.npmjs.com/package/dotenv) (for setup local env files)
 - [faker](https://www.npmjs.com/package/@faker-js/faker) (for generating fake data)
-
-## CI/CD:
-
-- configured throught gitHub actions, check the prev status
