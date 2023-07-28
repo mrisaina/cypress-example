@@ -12,7 +12,6 @@ import { selectBirthDate } from '../utils/signup'
 describe('twitter tests', () => {
   beforeEach(() => {
     // clear the state and delete messages from email
-    cy.clearCookies()
     deleteEmails(creds.email)
 
     // visit site and accept cookies
