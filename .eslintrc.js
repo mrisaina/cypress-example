@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'eslint:recommended',
+    // 'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
@@ -15,11 +15,20 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    semi: ['error', 'always'],
+    semi: ['error'],
     quotes: ['error', 'single'],
-    'prettier/prettier': 'error',
+    'no-multi-spaces': 'error',
+
+    // Use prettierrc
+    'prettier/prettier': [
+      'error',
+      {},
+      {
+        usePrettierrc: true,
+      },
+    ],
 
     // Remove unused vars
     '@typescript-eslint/no-unused-vars': ['error'],
