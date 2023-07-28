@@ -4,7 +4,7 @@
   "description": "cypress test project",
   "main": "index.js",
   "scripts": {
-    "test:open": "npm cypress open",
+    "test:open": "npx cypress open",
     "format": "npx prettier . --write",
     "test": "npx cypress run"
   },
