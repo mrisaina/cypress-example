@@ -1,0 +1,20 @@
+{
+  "name": "cypress-test-git",
+  "version": "1.0.0",
+  "description": "cypress test project",
+  "main": "index.js",
+  "scripts": {
+    "test:open": "npm cypress open",
+    "format": "npx prettier . --write",
+    "test": "npx cypress run"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.17.2",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "3.0.0",
+    "typescript": "^5.1.6"
+  }
+}
