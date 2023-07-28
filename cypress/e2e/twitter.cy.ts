@@ -31,6 +31,13 @@ describe('twitter tests', () => {
     waitForModalLoaderHidden()
 
     signup.username.type('TestUser')
+
+    // phone registration proposed, use email intead
+    cy.get('span').then((el) => {
+      if (el.text() === 'Use email instead') {
+        cy.contains('Use email instead').click()
+      }
+    })
     signup.email.type(email)
     selectBirthDate({ month: 'April', day: 20, year: 2000 })
     waitForBtnToBeEnabled(login.nextBtn)
