@@ -21,7 +21,7 @@ describe('twitter tests', () => {
 
     // visit site and accept cookies
     cy.visit(Cypress.config('baseUrl'))
-    common.acceptCookiesBtn.click()
+    // common.acceptCookiesBtn.click()
   })
 
   it('fill the sign up form and check that the data is defined as valid', () => {
