@@ -18,7 +18,7 @@ export const waitForBtnToBeEnabled = (
 // you can create .env file with own creds to test it
 
 export const creds = {
-  email: process.env.email ? process.env.email : 'testtwitt@mailto.plus',
-  username: process.env.username ? process.env.username : 'TestGuy28',
+  email: process.env.email ? process.env.email : 'testtwit@mailto.plus',
+  username: process.env.username ? process.env.username : 'TestGuy288',
   password: process.env.password ? process.env.password : 'Test1est!',
 }

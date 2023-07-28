@@ -41,7 +41,9 @@ describe('twitter tests', () => {
     login.nextBtn.click()
 
     // sign up
-    signup.signupBtn.click()
+    login.greenCheckMark.eq(0).should('have.css', 'color', 'rgb(0, 186, 124)')
+    login.greenCheckMark.eq(1).should('have.css', 'color', 'rgb(0, 186, 124)')
+    login.greenCheckMark.eq(2).should('have.css', 'color', 'rgb(0, 186, 124)')
 
     // here's human verification
   })

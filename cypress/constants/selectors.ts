@@ -17,6 +17,9 @@ export const login = {
   get forgotPasswordBtn() {
     return cy.get('[role="button"]').contains('Forgot password?')
   },
+  get greenCheckMark() {
+    return cy.get('.r-1kihuf0')
+  },
 }
 
 export const home = {
