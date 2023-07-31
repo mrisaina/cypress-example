@@ -38,3 +38,7 @@
 
 - [dotenv](https://www.npmjs.com/package/dotenv) (for setup local env files)
 - [faker](https://www.npmjs.com/package/@faker-js/faker) (for generating fake data)
+
+## Results:
+
+![cypress_results](./cypress/results_cypress.jpeg)

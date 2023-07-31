@@ -17,7 +17,6 @@ import { selectBirthDate } from '../utils/signup'
 describe('twitter tests', () => {
   beforeEach(() => {
     // delete messages from email
-    deleteEmails(creds.email)
 
     // visit site and accept cookies
     cy.visit(Cypress.config('baseUrl'))
@@ -82,6 +81,7 @@ describe('twitter tests', () => {
     login.forgotPasswordBtn.click()
     cy.location('pathname').should('contain', '/password_reset')
 
+    deleteEmails(creds.email)
     forgotPassword.username.type(creds.username)
     waitForBtnToBeEnabled(login.nextBtn)
     login.nextBtn.click()
